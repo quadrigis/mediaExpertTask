@@ -1,60 +1,97 @@
 ﻿# 🏪 StoreHouse
 
-![Build](https://github.com/TWOJ_LOGIN/MediaExpertTask/actions//build.yml/badge.svg
+[![Build & Test](https://github.com/quadrigis/mediaExpertTask)](https://github.com/quadrigis/mediaExpertTask/actions/workflows/build.yml)
 
-![.NET](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet)
-![Angular](https://img.shields.io/blar-20-DD0031?style=for-the-badge&logo=angular)
-![Swagger](https://img.shields.io/badge/OpenAPI-Swagger-85EA2the-badge&logo=swagger)
-![xUnit](https://img.shields.io/badge/xUnit-Tests-successhe-badge)
-![FluentValidation](https://img.shieldsbled-success?style=for-the-badge
+![.NET 8](https://img.shields.io/badge2BD4?style=for-the-badge&logo=dotnet&logoColor=white
+![Angular](https:/s.io/badge/Angular-Web-DD0031?style=for-the-badge&logo=angular&logoColor=white
+![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger&lack
+![xUnit](https://img.shields.io/badge/xUnit-Tests-5E2B97?style=for-the-badge)
+![FluentValidation](https://img.shields.io/badge/Fltion-Enabled-00A98F?style=for-the-badge)
+![GitHub Actions](https://img.shields.io/badge/Git?style=for-the-btions&logoColor=white
+
+A full-stack product catalog application built with **ASP.NET Core Web API** and **Angular**.
 
 ---
 
 ## 📖 Overview
 
-StoreHouse is a full-stack product catalog application built with ASP.NET Core Web API and Angular.
+StoreHouse is a recruitment project demonstrating a clean and maintainable approach to building a small full-stack application.
 
-Features:
+The application allows users to:
 
-- Display product catalog
-- Add new products
-- Backend validation
-- REST API communication
-- Swagger documentation
-- Unit tests
-- GitHub Actions CI
+- display the product catalog,
+- add new products,
+- validate product data,
+- communicate with a REST API,
+- test backend business logic,
+- verify the build automatically using GitHub Actions.
 
 ---
 
-## 🚀 Technologies
+## ✨ Features
 
 ### Backend
 
-- .NET 8
-- ASP.NET Core Web API
-- Swagger / OpenAPI
-- FluentValidation
+- REST API implemented with ASP.NET Core
+- Retrieve all products
+- Add a new product
+- In-memory product repository
 - Dependency Injection
-- Repository Pattern
-- In-Memory Storage
+- Service and Repository layers
+- Request validation with FluentValidation
+- Global exception handling
+- Swagger UI and OpenAPI documentation
+- CORS configuration for the Angular application
 
 ### Frontend
 
-- Angular
-- TypeScript
+- Product list
+- Product creation form
 - Reactive Forms
-- Angular Material
-- RxJS
+- Client-side validation
+- REST API communication
+- Loading and error handling
+- Responsive user interface
 
-### Testing
+### Quality
 
-- xUnit
-- Moq
-- FluentAssertions
+- Unit tests with xUnit
+- Test doubles with Moq
+- Readable assertions with FluentAssertions
+- Continuous Integration with GitHub Actions
+- Shared code formatting rules with `.editorconfig`
 
-### CI/CD
+---
 
-- GitHub Actions
+## 🧰 Technology Stack
+
+### Backend
+
+| Technology | Purpose |
+|---|---|
+| .NET 8 | Application platform |
+| ASP.NET Core | REST API |
+| FluentValidation | Request validation |
+| Swagger / OpenAPI | API documentation |
+| In-memory repository | Product storage |
+
+### Frontend
+
+| Technology | Purpose |
+|---|---|
+| Angular | Frontend framework |
+| TypeScript | Application language |
+| Reactive Forms | Form handling and validation |
+| RxJS | Asynchronous API communication |
+
+### Tests and automation
+
+| Technology | Purpose |
+|---|---|
+| xUnit | Unit test framework |
+| Moq | Mocking dependencies |
+| FluentAssertions | Readable test assertions |
+| GitHub Actions | Automated build and test pipeline |
 
 ---
 
@@ -64,7 +101,6 @@ Features:
 MediaExpertTask/
 │
 ├── StoreHouse.Api/
-│   ├── StoreHouse.sln
 │   ├── Controllers/
 │   ├── DTOs/
 │   ├── Middleware/
@@ -72,7 +108,9 @@ MediaExpertTask/
 │   ├── Repositories/
 │   ├── Services/
 │   ├── Validators/
-│   └── StoreHouse.Api.csproj
+│   ├── Program.cs
+│   ├── StoreHouse.Api.csproj
+│   └── StoreHouse.sln
 │
 ├── StoreHouse.Tests/
 │   ├── Services/
@@ -83,102 +121,143 @@ MediaExpertTask/
 │   ├── src/
 │   ├── angular.json
 │   ├── package.json
+│   ├── package-lock.json
 │   └── tsconfig.json
 │
-└── .github/
-    └── workflows/
-        └── build.yml
+├── .github/
+│   └── workflows/
+│       └── build.yml
+│
+├── .editorconfig
+├── .gitignore
+└── README.md
 ```
 
 ---
 
 ## 🏗️ Architecture
 
-```text
-Angular UI
-    │
-    ▼
-ProductsService
-    │
-    ▼
-REST API
-    │
-    ▼
-ProductsController
-    │
-    ▼
-ProductService
-    │
-    ▼
-ProductRepository
-    │
-    ▼
-InMemory Storage
+```mermaid
+flowchart LR
+    WEB[Angular Web Application]
+    CONTROLLER[Products Controller]
+    SERVICE[Product Service]
+    REPOSITORY[Product Repository]
+    MEMORY[(In-memory Collection)]
+
+    WEB -->|HTTP / JSON| CONTROLLER
+    CONTROLLER --> SERVICE
+    SERVICE --> REPOSITORY
+    REPOSITORY --> MEMORY
+```
+
+### Responsibilities
+
+- **Controller** handles HTTP requests and responses.
+- **Service** contains application and business logic.
+- **Repository** provides access to stored products.
+- **DTOs** define the public API contract.
+- **Validators** verify incoming product data.
+- **Middleware** provides consistent exception handling.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Install:
+
+- .NET 8 SDK
+- Node.js
+- npm
+- Angular CLI
+- Git
+
+Clone the repository:
+
+```bash
+git clone https://github.com/quadrigis/mediaExpertTask.git
+cd mediaExpertTask
 ```
 
 ---
 
-## ⚙️ Run Backend
-
-Navigate to:
-
-```bash
-cd StoreHouse.Api
-```
+## ⚙️ Running the Backend
 
 Restore dependencies:
 
 ```bash
-dotnet restore StoreHouse.sln
+dotnet restore StoreHouse.Api/StoreHouse.sln
 ```
 
-Build:
+Build the solution:
 
 ```bash
-dotnet build StoreHouse.sln
+dotnet build StoreHouse.Api/StoreHouse.sln
 ```
 
-Run:
+Run the API:
 
 ```bash
-dotnet run
+dotnet run --project StoreHouse.Api/StoreHouse.Api.csproj
 ```
+
+The terminal displays the HTTP and HTTPS addresses assigned to the application.
 
 ---
 
-## 🌐 Swagger
+## 📖 Swagger UI
 
-After startup open:
+After starting the backend, open the API address with the `/swagger` path.
+
+Example:
 
 ```text
-https://localhost:xxxx/swagger
+https://localhost:7001/swagger
 ```
 
-Swagger allows testing all available API endpoints.
+The actual port is defined by the local launch configuration and may differ.
+
+Swagger UI allows the API endpoints to be inspected and tested directly from a browser.
 
 ---
 
-## 📡 API Endpoints
+## 🔌 API Endpoints
 
-### Get Products
+### Get all products
 
 ```http
 GET /api/products
 ```
 
-### Create Product
+Example response:
+
+```json
+[
+  {
+    "id": "2bf8f425-2780-4ea1-a99d-16f93d19d497",
+    "code": "MON-001",
+    "name": "Monitor 27 inches",
+    "price": 1299.99
+  }
+]
+```
+
+### Create a product
 
 ```http
 POST /api/products
+Content-Type: application/json
 ```
 
 Example request:
 
 ```json
 {
-  "code": "P001",
-  "name": "Laptop",
-  "price": 3499.99
+  "code": "KEY-001",
+  "name": "Mechanical keyboard",
+  "price": 349.99
 }
 ```
 
@@ -186,60 +265,96 @@ Example response:
 
 ```json
 {
-  "id": "guid",
-  "code": "P001",
-  "name": "Laptop",
-  "price": 3499.99
+  "id": "4aa750ef-8015-4acc-9e8f-9c557c999c68",
+  "code": "KEY-001",
+  "name": "Mechanical keyboard",
+  "price": 349.99
 }
 ```
+
+### Response statuses
+
+| Status | Meaning |
+|---|---|
+| `200 OK` | Products returned successfully |
+| `201 Created` | Product created successfully |
+| `400 Bad Request` | Product validation failed |
+| `500 Internal Server Error` | Unexpected application error |
 
 ---
 
 ## ✅ Validation
 
-Validation is implemented using FluentValidation.
+Product requests are validated using FluentValidation.
 
-Rules:
+| Field | Rules |
+|---|---|
+| `code` | Required, maximum 50 characters |
+| `name` | Required, maximum 200 characters |
+| `price` | Must be greater than zero |
 
-| Field | Rule |
-|--------|--------|
-| Code | Required |
-| Name | Required |
-| Price | Greater than 0 |
+Example of an invalid request:
+
+```json
+{
+  "code": "",
+  "name": "",
+  "price": -10
+}
+```
+
+The API returns:
+
+```http
+400 Bad Request
+```
+
+together with validation details.
 
 ---
 
-## 💾 Data Storage
+## 💾 In-memory Storage
 
-Products are stored in-memory.
+Products are stored in application memory.
 
-No database is required.
+This means that:
 
-Data is cleared when the application restarts.
+- no external database is required,
+- products remain available while the API process is running,
+- all added products are removed after restarting the API.
+
+The repository is registered as a singleton so that the same collection is used across HTTP requests:
+
+```csharp
+builder.Services.AddSingleton<
+    IProductRepository,
+    InMemoryProductRepository>();
+```
 
 ---
 
-## 🖥️ Run Frontend
+## 🖥️ Running the Frontend
 
-Navigate to:
+Install dependencies:
 
 ```bash
 cd StoreHouse.Web
+npm ci
 ```
 
-Install packages:
+Start the development server:
 
 ```bash
-npm install
+npm start
 ```
 
-Run Angular:
+Alternatively:
 
 ```bash
 ng serve
 ```
 
-Open:
+Open the Angular application:
 
 ```text
 http://localhost:4200
@@ -247,77 +362,24 @@ http://localhost:4200
 
 ---
 
-## 🧪 Run Tests
+## 🧪 Running Tests
+
+From the repository root, execute:
 
 ```bash
-dotnet test StoreHouse.Tests
+dotnet test StoreHouse.Tests/StoreHouse.Tests.csproj
 ```
 
-Covered scenarios:
+The unit tests cover:
 
-- Product creation
-- Product retrieval
-- Validation rules
-
----
-
-## 🔄 Continuous Integration
-
-GitHub Actions automatically verifies:
-
-- Solution restore
-- Solution build
-- Unit tests
-- Angular build
-
-Workflow location:
-
-```text
-.github/workflows/build.yml
-```
+- product creation,
+- product mapping,
+- product retrieval,
+- repository interaction,
+- request validation,
+- invalid product prices,
+- required product fields.
 
 ---
 
-## 🎯 Design Decisions
-
-### Repository Pattern
-
-Separates data access from business logic.
-
-### Service Layer
-
-Keeps controllers thin and focused on HTTP concerns.
-
-### DTOs
-
-Separate API contract from domain models.
-
-### FluentValidation
-
-Provides clean and testable validation.
-
-### In-Memory Repository
-
-Chosen to satisfy task requirements while keeping the implementation simple.
-
----
-
-## 🔮 Future Improvements
-
-- Edit product
-- Delete product
-- Search products
-- Pagination
-- SQL database
-- Docker support
-- Integration tests
-- Authentication
-- Authorization
-
----
-
-## 👨‍💻 Author
-
-**Michał Jędruch**
-
-Recruitment assignment for .NET Fullstack Developer position.
+## 🔄 Continuous 
