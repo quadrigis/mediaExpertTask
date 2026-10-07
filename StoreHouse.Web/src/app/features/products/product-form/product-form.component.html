@@ -1,0 +1,45 @@
+<form class="product-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <mat-form-field appearance="outline">
+    <mat-label>Product code</mat-label>
+    <input matInput formControlName="code" maxlength="50" autocomplete="off" placeholder="LAP-001">
+    <mat-icon matSuffix>qr_code</mat-icon>
+
+    @if (codeControl.hasError('required') && codeControl.touched) {
+      <mat-error>Product code is required.</mat-error>
+    }
+    @if (codeControl.hasError('maxlength') && codeControl.touched) {
+      <mat-error>Maximum length is 50 characters.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Product name</mat-label>
+    <input matInput formControlName="name" maxlength="200" autocomplete="off" placeholder="Laptop">
+    <mat-icon matSuffix>inventory_2</mat-icon>
+
+    @if (nameControl.hasError('required') && nameControl.touched) {
+      <mat-error>Product name is required.</mat-error>
+    }
+    @if (nameControl.hasError('maxlength') && nameControl.touched) {
+      <mat-error>Maximum length is 200 characters.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price" min="0.01" step="0.01" placeholder="0.00">
+    <span matTextSuffix>PLN</span>
+
+    @if (priceControl.hasError('required') && priceControl.touched) {
+      <mat-error>Price is required.</mat-error>
+    }
+    @if (priceControl.hasError('min') && priceControl.touched) {
+      <mat-error>Price must be greater than zero.</mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit">
+    <mat-icon>add</mat-icon>
+    Add product
+  </button>
+</form>

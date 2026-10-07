@@ -1,0 +1,28 @@
+@if (products.length === 0) {
+  <div class="empty-state">
+    <mat-icon>inventory_2</mat-icon>
+    <h3>No products yet</h3>
+    <p>Use the form above to add the first product.</p>
+  </div>
+} @else {
+  <div class="table-container">
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th scope="col">Code</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products; track product.id) {
+          <tr>
+            <td><span class="product-code">{{ product.code }}</span></td>
+            <td>{{ product.name }}</td>
+            <td class="product-price">{{ product.price | currency:'PLN':'symbol':'1.2-2':'pl-PL' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

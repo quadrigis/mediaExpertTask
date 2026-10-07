@@ -1,0 +1,21 @@
+.product-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr)) auto;
+  align-items: start;
+  gap: 16px;
+}
+
+.product-form button {
+  min-height: 56px;
+  padding-inline: 24px;
+}
+
+@media (max-width: 960px) {
+  .product-form {
+    grid-template-columns: 1fr;
+  }
+
+  .product-form button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,63 @@
+<mat-toolbar class="app-toolbar">
+  <div class="toolbar-content">
+    <div class="brand">
+      <mat-icon>storefront</mat-icon>
+      <span>StoreHouse</span>
+    </div>
+    <span class="toolbar-subtitle">Product catalog</span>
+  </div>
+</mat-toolbar>
+
+@if (isLoading() || isSaving()) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+
+<main class="page-container">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">PRODUCT MANAGEMENT</p>
+      <h1>StoreHouse catalog</h1>
+      <p class="hero-description">Add products and manage the in-memory product catalog.</p>
+    </div>
+
+    <div class="product-count">
+      <strong>{{ products().length }}</strong>
+      <span>Products</span>
+    </div>
+  </section>
+
+  <mat-card appearance="outlined" class="content-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>add_box</mat-icon>
+      <mat-card-title>Add product</mat-card-title>
+      <mat-card-subtitle>Complete all fields and submit the form.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <app-product-form (productSubmitted)="addProduct($event)"></app-product-form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="content-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>inventory</mat-icon>
+      <mat-card-title>Product catalog</mat-card-title>
+      <mat-card-subtitle>Products currently stored by the API.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      @if (hasLoadingError()) {
+        <div class="loading-error">
+          <mat-icon>cloud_off</mat-icon>
+          <p>Products could not be loaded.</p>
+          <button mat-stroked-button type="button" (click)="loadProducts()">
+            <mat-icon>refresh</mat-icon>
+            Try again
+          </button>
+        </div>
+      } @else {
+        <app-product-list [products]="products()"></app-product-list>
+      }
+    </mat-card-content>
+  </mat-card>
+</main>
