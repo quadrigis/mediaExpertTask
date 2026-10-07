@@ -22,10 +22,10 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore solution
-        run: dotnet restore StoreHouse.Api/StoreHouse.slnx
+        run: dotnet restore StoreHouse.Api/StoreHouse.Api.slnx
 
       - name: Build solution
-        run: dotnet build StoreHouse.Api/StoreHouse.slnx --configuration Release --no-restore
+        run: dotnet build StoreHouse.Api/StoreHouse.Api.slnx --configuration Release --no-restore
 
       - name: Run tests
         run: dotnet test StoreHouse.Tests/StoreHouse.Tests.csproj --configuration Release --no-build
