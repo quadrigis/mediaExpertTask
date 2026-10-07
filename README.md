@@ -1,6 +1,6 @@
 ﻿# 🏪 StoreHouse
 
-[![Build & Test](https://github.com/quadrigis/mediaExpertTask/actions/workflows/build.yml/badge.svg)](https://github.com/quadrigis/mediaExpertTask/actions/workflows/build.yml)
+[![Build & Test](https://github.com/quadrigis/mediaExpertTask/actions/workflows/build.yaml/badge.svg)](https://github.com/quadrigis/mediaExpertTask/actions/workflows/build.yaml)
 ![.NET 8](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![Angular](https://img.shields.io/badge/Angular-Web-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
