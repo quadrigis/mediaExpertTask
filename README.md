@@ -1,15 +1,15 @@
 ﻿# 🏪 StoreHouse
 
-[![Build & Test](https://github.com/quadrigis/mediaExpertTask)](https://github.com/quadrigis/mediaExpertTask/actions/workflows/build.yml)
+[![Build & Test](https://github.com/quadrigis/mediaExpertTask/actions/workflows/om/quadrigis/mediaExpertTask/actions)
 
-![.NET 8](https://img.shields.io/badge2BD4?style=for-the-badge&logo=dotnet&logoColor=white
-![Angular](https:/s.io/badge/Angular-Web-DD0031?style=for-the-badge&logo=angular&logoColor=white
-![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger&lack
-![xUnit](https://img.shields.io/badge/xUnit-Tests-5E2B97?style=for-the-badge)
-![FluentValidation](https://img.shields.io/badge/Fltion-Enabled-00A98F?style=for-the-badge)
-![GitHub Actions](https://img.shields.io/badge/Git?style=for-the-btions&logoColor=white
+![.NET 8](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-Web-DDfor-the-badge&logo=angular&logoColor=white)
+![Swagger](https://img.shields.io/r-OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![xUnit](https://img.shields.io/badge/xE2B97?style=for-the-badge)
+![FluentValidation](https://img.shields.io/badge/FluentValidation0A98F?style=for-the-badge)
+![GitHub Actions](https://img.shields.io/badge/GitHublogo=githubactions&logoColor=white
 
-A full-stack product catalog application built with **ASP.NET Core Web API** and **Angular**.
+A full-stack product catalog application built with ASP.NET Core Web API and Angular.
 
 ---
 
