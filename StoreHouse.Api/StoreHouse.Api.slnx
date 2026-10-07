@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../StoreHouse.Tests/StoreHouse.Tests.csproj" />
   <Project Path="StoreHouse.Api.csproj" />
 </Solution>
