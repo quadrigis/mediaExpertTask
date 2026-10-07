@@ -1,0 +1,48 @@
+name: Build & Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ----------------------
+      # .NET
+      # ----------------------
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore solution
+        run: dotnet restore StoreHouse.Api/StoreHouse.sln
+
+      - name: Build solution
+        run: dotnet build StoreHouse.Api/StoreHouse.sln --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test StoreHouse.Tests/StoreHouse.Tests.csproj --configuration Release --no-build
+
+      # ----------------------
+      # Angular
+      # ----------------------
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install npm packages
+        working-directory: StoreHouse.Web
+        run: npm ci
+
+      - name: Build Angular application
+        working-directory: StoreHouse.Web
+        run: npm run build
